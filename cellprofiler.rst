@@ -6,8 +6,8 @@ biological images.
 
 For more details, visit the `CellProfiler website <http://cellprofiler.org/>`_.
 
-**Description:**
-----------------
+**Description**
+---------------
 
 In this document, we will demonstrate how to integrate CellProfiler and
 OMERO using the CellProfiler Python API and the OMERO Python API. We
@@ -25,10 +25,10 @@ We will show:
 
 -  How to save the generated results back to OMERO as OMERO.table so they can be used later on by OMERO.parade.
 
-**Setup:**
-----------
+**Setup**
+---------
 
-CellProfiler version 3.1.8 has been installed in a Docker image.
+CellProfiler version **3.1.8** has been installed in a Docker image.
 
 For more details, look at:
 
@@ -36,8 +36,8 @@ For more details, look at:
 
 -  https://github.com/ome/training-notebooks/blob/master/docker/environment-python2-cellprofiler.yml
 
-**Resources:**
---------------
+**Resources**
+-------------
 
 We will use a CellProfiler example pipeline to analyse RNAi screening
 data from the Image Data Resource (IDR).
@@ -52,8 +52,8 @@ For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
 which is a read-only OMERO.server.
 
-**Step-by-Step:**
------------------
+**Step-by-Step**
+----------------
 
 1.  First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
 
