@@ -1,4 +1,4 @@
-# omero-guide-cellprofiler
+# Guide on how to integrate CellProfiler and OMERO
 
 This a Sphinx based documentation. 
 If you are unfamiliar with Sphinx, we recommend that you first read 
