@@ -1,5 +1,5 @@
-**Analyze OMERO data using CellProfiler**
-=========================================
+Analyze OMERO data using CellProfiler
+=====================================
 
 CellProfiler is a free open-source software for quantitative analysis of
 biological images.
