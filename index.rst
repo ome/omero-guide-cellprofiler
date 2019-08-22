@@ -1,6 +1,3 @@
-Welcome to OMERO guide CellProfiler's documentation!
-====================================================
-
 Contents:
 
 .. toctree::
