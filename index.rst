@@ -1,6 +1,8 @@
+CellProfiler's documentation
+============================
+
 Contents:
 
 .. toctree::
-   :maxdepth: 2
-
    cellprofiler
+   :maxdepth: 2
