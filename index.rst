@@ -1,5 +1,5 @@
-CellProfiler's documentation
-============================
+CellProfiler
+============
 
 Contents:
 
