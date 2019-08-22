@@ -1,5 +1,6 @@
 Contents:
 
 .. toctree::
-   cellprofiler
    :maxdepth: 2
+
+    cellprofiler
