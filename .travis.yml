@@ -13,4 +13,5 @@ env:
   - SPHINXOPTS="-W"
 
 script:
+  - cd docs
   - make clean html
