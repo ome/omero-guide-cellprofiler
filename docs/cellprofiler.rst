@@ -55,56 +55,56 @@ which is a read-only OMERO.server.
 **Step-by-Step**
 ----------------
 
-1.  First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
+#.  First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
 
-2.  Go to \ https://idr-analysis.openmicroscopy.org/training
+#.  Go to \ https://idr-analysis.openmicroscopy.org/training
 
-3.  Look under *Notebooks > CellProfiler* for idr0002.ipynb.
+#.  Look under *Notebooks > CellProfiler* for idr0002.ipynb.
 
     .. image:: images/cp1.png
 
-4.  Select the first Step and click on the Run button to execute each step in turn.
+#.  Select the first Step and click on the Run button to execute each step in turn.
 
-5.  For the connection to OMERO, you will be asked to enter your login details when running the OMERO credentials cell.
+#.  For the connection to OMERO, you will be asked to enter your login details when running the OMERO credentials cell.
 
-6.  Select the plate in the webclient, find the Plate ID in the right-hand panel and copy this into the plate_id variable in the next step of the notebook.
+#.  Select the plate in the webclient, find the Plate ID in the right-hand panel and copy this into the plate_id variable in the next step of the notebook.
 
-7.  The following cell loads the example pipeline and modifies it to remove the modules that are normally used for loading images from disk.
+#.  The following cell loads the example pipeline and modifies it to remove the modules that are normally used for loading images from disk.
 
-8.  These modules are replaced by the InjectImage module, using numpy planes loaded from OMERO Images. This allows to pass data from OMERO to CellProfiler.
+#.  These modules are replaced by the InjectImage module, using numpy planes loaded from OMERO Images. This allows to pass data from OMERO to CellProfiler.
 
-9.  The pipeline is run on all 2-Channel images from each Well in the 96-well plate (each Well contains one image), generating a CSV file containing rows for different objects identified in the
+#.  The pipeline is run on all 2-Channel images from each Well in the 96-well plate (each Well contains one image), generating a CSV file containing rows for different objects identified in the
 image and columns for various parameters measured.
 
-10. Note that to save time during the workshop, we can run on a subset of all Wells in the plate. We run it on the first 5 wells:
+#. Note that to save time during the workshop, we can run on a subset of all Wells in the plate. We run it on the first 5 wells:
 
 .. image:: images/cp2.png
 
-11. The generated CSV file is read into a Dataframe for each image. We add the Image ID and Well ID, as well as the total number of Objects, Cell_Count, to each Dataframe.
+#. The generated CSV file is read into a Dataframe for each image. We add the Image ID and Well ID, as well as the total number of Objects, Cell_Count, to each Dataframe.
 
-12. All the Dataframes are then concatenated into a single Dataframe.
+#. All the Dataframes are then concatenated into a single Dataframe.
 
-13. We can visualise the data as histograms for each column with
+#. We can visualise the data as histograms for each column with
        df.hist()
 
 .. image:: images/cp3.png
 
 
-14. Finally, the Dataframe rows are grouped by Image to give an average value per Image of each parameter (column) in the table.
+#. Finally, the Dataframe rows are grouped by Image to give an average value per Image of each parameter (column) in the table.
 
-15. This data is saved back to OMERO as an HDF5-based table attached to the Plate, which can be read by other clients.
+#. This data is saved back to OMERO as an HDF5-based table attached to the Plate, which can be read by other clients.
 
-16. Return to the webclient and select the Plate named plate1_1_013_previously_analysed.
+#. Return to the webclient and select the Plate named plate1_1_013_previously_analysed.
 
-17. Select a Well in the central pane and open the Tables harmonica in the General tab in the right-hand pane. This will show all the CellProfiler values for this Well.
+#. Select a Well in the central pane and open the Tables harmonica in the General tab in the right-hand pane. This will show all the CellProfiler values for this Well.
 
-18. In the Thumbnails dropdown menu at the top-right of the centre panel, select the Parade plugin.
+#. In the Thumbnails dropdown menu at the top-right of the centre panel, select the Parade plugin.
 
-19. At the top-left of the centre panel choose *Add filter... > Table* to filter Wells by the data from CellProfiler.
+#. At the top-left of the centre panel choose *Add filter... > Table* to filter Wells by the data from CellProfiler.
 
-20. Change the filter from ImageNumber to Cell_Count (at the bottom of the list).
+#. Change the filter from ImageNumber to Cell_Count (at the bottom of the list).
 
-21. Now you can use theslider to filter Wells by Cell Count.
+#. Now you can use theslider to filter Wells by Cell Count.
 
 .. image:: images/cp4.png
 
