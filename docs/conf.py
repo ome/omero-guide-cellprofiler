@@ -280,3 +280,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+# Regular expressions that match URIs that should not be checked when doing a linkcheck build
+linkcheck_ignore = [r'https://idr-analysis.openmicroscopy.org/training']

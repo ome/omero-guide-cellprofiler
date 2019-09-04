@@ -4,7 +4,7 @@ Analyze OMERO data using CellProfiler
 CellProfiler is a free open-source software for quantitative analysis of
 biological images.
 
-For more details, visit the `CellProfiler website <http://cellprofiler.org/>`_.
+For more details, visit the `CellProfiler website <https://cellprofiler.org/>`_.
 
 **Description**
 ---------------
@@ -42,7 +42,7 @@ For more details, look at:
 We will use a CellProfiler example pipeline to analyse RNAi screening
 data from the Image Data Resource (IDR).
 
--  Pipeline \ http://cellprofiler.org/examples/#PercentPositive
+-  PercentPositive Pipeline \ https://cellprofiler.org/examples/
 
 -  IDR data \ https://idr.openmicroscopy.org/webclient/?show=screen-102
 
