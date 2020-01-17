@@ -1,16 +1,13 @@
 name: base
 channels:
-  - ome
   - defaults
   - anaconda
   - goodman
   - bioconda
   - conda-forge
 dependencies:
-  - zeroc-ice36-python
-  - omero-py
   - pandas=0.24
-  - python=3.6
+  - python=2.7
   - appdirs=1.4.*
   - cython=0.28.*
   - h5py=2.7.*
@@ -37,6 +34,8 @@ dependencies:
   - wxpython=4.0.*
   - tornado=4.5.3 # bug with version 5.0. This implies that the kernel cannot start
   - mysql-connector-python
+  - pytest<3
   - pip:
+    - omero-py
     - cellh5
-    - git+https://github.com/CellProfiler/CellProfiler.git@v3.1.8
+    - git+https://github.com/CellProfiler/CellProfiler.git@v3.1.9
