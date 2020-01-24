@@ -5,11 +5,14 @@ This guide demonstrates how to use the CellProfiler Python API to analyze data s
 
 This repository contains documentation and notebooks.
 
-To run the notebooks, you can either [run on mybinder.org](https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks) or build locally with [repo2docker](https://repo2docker.readthedocs.io/):
+To run the notebooks, you can either [run on mybinder.org](https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks) or build locally with [repo2docker](https://repo2docker.readthedocs.io/).
 
-```
-repo2docker .
-```
+To build locally:
+
+ * Create a virtual environment and install repo2docker from PyPI.
+ * Clone this repository
+ * Run the following command ``repo2docker .``
+
 
 
 This a Sphinx based documentation. 
