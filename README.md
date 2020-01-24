@@ -11,7 +11,14 @@ To build locally:
 
  * Create a virtual environment and install repo2docker from PyPI.
  * Clone this repository
- * Run the following command ``repo2docker .``
+ * Run  ``repo2docker``
+
+```
+pip install jupyter-repo2docker
+git clone https://github.com/ome/omero-guide-cellprofiler.git
+cd omero-guide-cellprofiler
+repo2docker .
+```
 
 
 
