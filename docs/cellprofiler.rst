@@ -28,13 +28,12 @@ We will show:
 **Setup**
 ---------
 
-CellProfiler version **3.1.8** has been installed in a Docker image.
+CellProfiler version **3.1.9** has been installed in a Docker image using BinderHub.
 
 For more details, look at:
 
--  https://github.com/ome/training-notebooks/blob/master/Dockerfile
+-  :download:`installation file <../binder/environment.yml>`
 
--  https://github.com/ome/training-notebooks/blob/master/docker/environment-python2-cellprofiler.yml
 
 **Resources**
 -------------
@@ -46,7 +45,7 @@ data from the Image Data Resource (IDR).
 
 -  IDR data \ https://idr.openmicroscopy.org/webclient/?show=screen-102
 
--  Notebook \ https://github.com/ome/training-notebooks/blob/master/CellProfiler/idr0002.ipynb
+-  Notebook :download:`idr0002_save.ipynb <../notebooks/idr0002_save.ipynb>`
 
 For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
@@ -55,25 +54,29 @@ which is a read-only OMERO.server.
 **Step-by-Step**
 ----------------
 
-#.  First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
+#. First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
 
-#.  Go to \ https://idr-analysis.openmicroscopy.org/training
+#. Go to \ https://mybinder.org/
 
-#.  Look under *Notebooks > CellProfiler* for idr0002.ipynb.
+#. Copy and paste the URL of this repository
+
+#. Click launch to start the instance.
+
+#. Look under *Notebooks* for idr0002_save.ipynb.
 
     .. image:: images/cp1.png
 
-#.  Select the first Step and click on the Run button to execute each step in turn.
+#. Select the first Step and click on the Run button to execute each step in turn.
 
-#.  For the connection to OMERO, you will be asked to enter your login details when running the OMERO credentials cell.
+#. For the connection to OMERO, you will be asked to enter your login details when running the OMERO credentials cell.
 
-#.  Select the plate in the webclient, find the Plate ID in the right-hand panel and copy this into the plate_id variable in the next step of the notebook.
+#. Select the plate in the webclient, find the Plate ID in the right-hand panel and copy this into the plate_id variable in the next step of the notebook.
 
-#.  The following cell loads the example pipeline and modifies it to remove the modules that are normally used for loading images from disk.
+#. The following cell loads the example pipeline and modifies it to remove the modules that are normally used for loading images from disk.
 
-#.  These modules are replaced by the InjectImage module, using numpy planes loaded from OMERO Images. This allows to pass data from OMERO to CellProfiler.
+#. These modules are replaced by the InjectImage module, using numpy planes loaded from OMERO Images. This allows to pass data from OMERO to CellProfiler.
 
-#.  The pipeline is run on all 2-Channel images from each Well in the 96-well plate (each Well contains one image), generating a CSV file containing rows for different objects identified in the
+#. The pipeline is run on all 2-Channel images from each Well in the 96-well plate (each Well contains one image), generating a CSV file containing rows for different objects identified in the
 image and columns for various parameters measured.
 
 #. Note that to save time during the workshop, we can run on a subset of all Wells in the plate. We run it on the first 5 wells:
@@ -84,8 +87,7 @@ image and columns for various parameters measured.
 
 #. All the Dataframes are then concatenated into a single Dataframe.
 
-#. We can visualise the data as histograms for each column with
-       df.hist()
+#. We can visualise the data as histograms for each column with df.hist()
 
 .. image:: images/cp3.png
 
