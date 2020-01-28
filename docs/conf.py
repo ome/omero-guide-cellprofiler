@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'OMERO guide CellProfiler'
-copyright = u'2019, Open Microscopy Environment'
+copyright = u'2019-2020, Open Microscopy Environment'
 author = u'Open Microscopy Environment'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -58,7 +58,7 @@ author = u'Open Microscopy Environment'
 # built documents.
 #
 # The short X.Y version.
-version = '0.1.0a1'
+version = '0.1.1a1'
 # The full version, including alpha/beta/rc tags.
 release = version
 
