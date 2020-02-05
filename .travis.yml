@@ -19,6 +19,6 @@ install:
   - pip install --upgrade jupyter-repo2docker
 
 script:
-  - repo2docker .
+  - repo2docker --no-run .
   - cd docs
   - make clean html linkcheck
