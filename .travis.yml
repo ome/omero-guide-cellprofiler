@@ -1,6 +1,9 @@
 ---
 language: python
 
+python:
+  - 3.7
+
 # This (sudo: false) is needed to "run on container-based infrastructure" on
 # which cache: is available
 # https://docs.travis-ci.com/user/workers/container-based-infrastructure/
@@ -12,6 +15,11 @@ cache: pip
 env:
   - SPHINXOPTS="-W"
 
+install:
+  - pip install --upgrade jupyter-repo2docker
+  - pip install --upgrade sphinx
+
 script:
+  - repo2docker --no-run .
   - cd docs
   - make clean html linkcheck
