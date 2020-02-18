@@ -1,12 +1,6 @@
 Analyze OMERO data
 ==================
 
-**Run the notebooks**
----------------------
-
-Follow the instructions in 
-:download:`README <../README.md>` to run the notebooks either locally or `on mybinder.org <https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks>`_.
-
 
 **Description**
 ---------------
