@@ -28,7 +28,7 @@ Conda manages programming environments in a manner similar to
 
     $ conda create -n cellprofiler python=2.7
 
-- Install CellProfiler **3.1.9** and its dependencies using an installation file::
+- Install CellProfiler, its dependencies and ``omero-py`` in order to connect to an OMERO server using an installation file::
 
     $ conda env update -n cellprofiler --file binder/environment.yml 
 
