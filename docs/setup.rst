@@ -1,7 +1,7 @@
 Install CellProfiler
 ====================
 
-In this section, we indicate how to install CellProfiler in a `Conda <https://conda.io/en/latest/>`_ environment.
+In this section, we show how to install CellProfiler in a `Conda <https://conda.io/en/latest/>`_ environment.
 We will use the CellProfiler API to analyze data stored in an OMERO server.
 
 CellProfiler currently runs on Python 2.7. It does not yet support Python 3.
@@ -14,11 +14,15 @@ We recommand to install CellProfiler using Conda.
 Conda manages programming environments in a manner similar to 
 `virtualenv <https://virtualenv.pypa.io/en/stable/>`_.
 
-- We assume that you have a local copy of the `omero-guide-cellprofiler repository <https://github.com/ome/omero-guide-cellprofiler>`_. If not, first clone the repository::
+- Install `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ if necessary.
+
+- If you do not have a local copy of the `omero-guide-cellprofiler repository <https://github.com/ome/omero-guide-cellprofiler>`_, first clone the repository::
 
     $ git clone https://github.com/ome/omero-guide-cellprofiler.git
 
-- Install `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ if necessary.
+- Go into the directory::
+
+    $ cd omero-guide-cellprofiler
 
 - Create a programming environment using Conda::
 
