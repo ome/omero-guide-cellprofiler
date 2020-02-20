@@ -32,3 +32,6 @@ Conda manages programming environments in a manner similar to
 
     $ conda env update -n cellprofiler --file binder/environment.yml 
 
+- Activate the environment::
+
+    $ conda activate cellprofiler
