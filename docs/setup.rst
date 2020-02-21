@@ -10,7 +10,7 @@ CellProfiler currently runs on Python 2.7. It does not yet support Python 3.
 **Setup**
 ---------
 
-We recommand to install CellProfiler using Conda.
+We recommend to install CellProfiler using Conda.
 Conda manages programming environments in a manner similar to 
 `virtualenv <https://virtualenv.pypa.io/en/stable/>`_.
 
