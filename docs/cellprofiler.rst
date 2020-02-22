@@ -1,10 +1,6 @@
-Analyze OMERO data using CellProfiler
-=====================================
+Analyze OMERO data
+==================
 
-CellProfiler is a free open-source software for quantitative analysis of
-biological images.
-
-For more details, visit the `CellProfiler website <https://cellprofiler.org/>`_.
 
 **Description**
 ---------------
@@ -24,16 +20,6 @@ We will show:
 -  How to plot the results.
 
 -  How to save the generated results back to OMERO as OMERO.table so they can be used later on by OMERO.parade.
-
-**Setup**
----------
-
-CellProfiler version **3.1.9** has been installed in a Docker image using BinderHub.
-
-For more details, look at:
-
--  :download:`installation file <../binder/environment.yml>`
-
 
 **Resources**
 -------------
