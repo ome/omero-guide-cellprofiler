@@ -21,44 +21,33 @@
 #
 # Version: 1.0
 #
+import os
+import tempfile
+import pandas
+import warnings
 
-# Import Cell Profiler Dependencies
-import cellprofiler
-import cellprofiler.preferences as cpprefs
-import cellprofiler.module as cpm
-import cellprofiler.pipeline as cpp
-cpprefs.set_headless()
-# module used to inject OMERO image planes into Cell Profiler Pipeline
-from cellprofiler.modules.injectimage import InjectImage
+import matplotlib
+
+from getpass import getpass
 
 # Import OMERO Python BlitzGateway
-import omero
 from omero.gateway import BlitzGateway
 from omero.grid import DoubleColumn, ImageColumn, LongColumn, WellColumn
 from omero.constants.namespaces import NSBULKANNOTATIONS
 from omero.gateway import FileAnnotationWrapper
 from omero.model import OriginalFileI
 
-import numpy as np
+# module used to inject OMERO image planes into Cell Profiler Pipeline
+from cellprofiler.modules.injectimage import InjectImage
 
-import os
-from os.path import expanduser
-import tempfile
-import pandas
-import warnings
-
-import matplotlib
-import matplotlib.pyplot as plt
-
-from getpass import getpass
-
-# Set Cell Output Directory
-new_output_directory = os.path.normcase(tempfile.mkdtemp())
-cpprefs.set_default_output_directory(new_output_directory)
+# Import Cell Profiler Dependencies
+import cellprofiler.preferences as cpprefs
+import cellprofiler.pipeline as cpp
+cpprefs.set_headless()
 
 
 def connect(hostname, username, password):
-    conn = BlitzGateway(username, password, 
+    conn = BlitzGateway(username, password,
                         host=hostname, secure=True)
     conn.connect()
     return conn
@@ -78,13 +67,15 @@ def load_pipeline(pipeline_path):
     return pipeline
 
 
-def analyze(plate):
+def analyze(plate, pipeline):
     warnings.filterwarnings('ignore')
-    
+    # Set Cell Output Directory
+    new_output_directory = os.path.normcase(tempfile.mkdtemp())
+    cpprefs.set_default_output_directory(new_output_directory)
+
     files = list()
     wells = list(plate.listChildren())
     wells = wells[0:5]  # use the first 5 wells
-    well_count = len(wells)
     for count, well in enumerate(wells):
         # Load a single Image per Well
         image = well.getImage(0)
@@ -104,7 +95,8 @@ def analyze(plate):
             inject_image_module = InjectImage(image_name, plane)
             inject_image_module.set_module_num(1)
             pipeline_copy.add_module(inject_image_module)
-        m = pipeline_copy.run()
+        pipeline_copy.run()
+
         # Results obtained as CSV from Cell Profiler
         path = new_output_directory + '/Nuclei.csv'
         f = pandas.read_csv(path, index_col=None, header=0)
@@ -115,17 +107,18 @@ def analyze(plate):
     return files
 
 
-def calculate_stats():
+def calculate_stats(files):
+    Nuclei = pandas.DataFrame()
+    Nuclei = pandas.concat(files, ignore_index=True)
     Nuclei.describe()
     matplotlib.rcParams['figure.figsize'] = (32.0, 30.0)
     df = Nuclei.drop(['Image', 'ImageNumber', 'Well', 'ObjectNumber',
                       'Number_Object_Number', 'Classify_PH3Neg',
                       'Classify_PH3Pos'], axis=1)
     df.hist()
-    return Nuclei
 
 
-def save_results(summary):
+def save_results(conn, summary, plate):
     cols = []
     for col in summary.columns:
         if col == 'Image':
@@ -154,34 +147,29 @@ def save_results(summary):
 
 
 def main():
-  # Collect user credentials
-  username = raw_input("Username: ")
-  password = getpass("OMERO Password: ")
-  plate_id = raw_input("Plate ID: ")
-  host = 'wss://workshop.openmicroscopy.org/omero-ws'
-  # Connect to the server
-  conn = connect(host, username, passowrd)
+    # Collect user credentials
+    username = raw_input("Username: ")
+    password = getpass("OMERO Password: ")
+    plate_id = raw_input("Plate ID: ")
+    host = 'wss://workshop.openmicroscopy.org/omero-ws'
+    # Connect to the server
+    conn = connect(host, username, password)
 
-  # Read the pipeline
-  pipeline_path = "../notebooks/pipelines/ExamplePercentPositive.cppipe"
-  pipeline = load_pipeline(pipeline_path)
+    # Read the pipeline
+    pipeline_path = "../notebooks/pipelines/ExamplePercentPositive.cppipe"
+    pipeline = load_pipeline(pipeline_path)
 
-  # Load the plate
-  plate = conn.getObject("Plate", plate_id)
-  files = analyze(plate)
+    # Load the plate
+    plate = conn.getObject("Plate", plate_id)
+    files = analyze(plate, pipeline)
 
-  # Calculate stats
-  Nuclei = pandas.DataFrame()
-  Nuclei = pandas.concat(files, ignore_index=True)
-  calculate_stats()
+    # Calculate stats
+    Nuclei = calculate_stats(files)
 
-  # Save the result back to OMERO
-  summary = Nuclei.groupby('Image').mean()
-  save_results(summary)
+    # Save the result back to OMERO
+    summary = Nuclei.groupby('Image').mean()
+    save_results(conn, summary, plate)
 
 
-if __name__== "__main__":
+if __name__ == "__main__":
     main()
-
-
-
