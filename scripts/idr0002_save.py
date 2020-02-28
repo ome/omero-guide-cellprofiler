@@ -23,38 +23,39 @@
 #
 import os
 import tempfile
-import pandas
 import warnings
-
-import matplotlib
 
 from getpass import getpass
 
 # Import OMERO Python BlitzGateway
 from omero.gateway import BlitzGateway
-from omero.grid import DoubleColumn, ImageColumn, LongColumn, WellColumn
-from omero.constants.namespaces import NSBULKANNOTATIONS
-from omero.gateway import FileAnnotationWrapper
-from omero.model import OriginalFileI
-
-# module used to inject OMERO image planes into Cell Profiler Pipeline
-from cellprofiler.modules.injectimage import InjectImage
 
 # Import Cell Profiler Dependencies
 import cellprofiler.preferences as cpprefs
 import cellprofiler.pipeline as cpp
-cpprefs.set_headless()
+
+# Important to set when running headless
+cpprefs.set_headless()  # noqa
+
+# module used to inject OMERO image planes into Cell Profiler Pipeline
+from cellprofiler.modules.injectimage import InjectImage
 
 
+# Connect to the server
 def connect(hostname, username, password):
     conn = BlitzGateway(username, password,
                         host=hostname, secure=True)
     conn.connect()
     return conn
 
+# Load-plate
+def load_plate(conn, plate_id):
+    return conn.getObject("Plate", plate_id)
 
+
+# Load-pipeline
 def load_pipeline(pipeline_path):
-    pipeline = cpp.Pipeline(),
+    pipeline = cpp.Pipeline()
     pipeline.load(pipeline_path)
     # Remove first 4 modules: Images, Metadata, NamesAndTypes, Groups...
     # (replaced by InjectImage module below)
@@ -67,8 +68,10 @@ def load_pipeline(pipeline_path):
     return pipeline
 
 
+# Analyze-data
 def analyze(plate, pipeline):
     warnings.filterwarnings('ignore')
+    print("analyzing...")
     # Set Cell Output Directory
     new_output_directory = os.path.normcase(tempfile.mkdtemp())
     cpprefs.set_default_output_directory(new_output_directory)
@@ -79,6 +82,7 @@ def analyze(plate, pipeline):
     for count, well in enumerate(wells):
         # Load a single Image per Well
         image = well.getImage(0)
+        print(image.getName())
         pixels = image.getPrimaryPixels()
         size_c = image.getSizeC()
         # For each Image in OMERO, we copy pipeline and inject image modules
@@ -99,53 +103,28 @@ def analyze(plate, pipeline):
 
         # Results obtained as CSV from Cell Profiler
         path = new_output_directory + '/Nuclei.csv'
-        f = pandas.read_csv(path, index_col=None, header=0)
-        f['Image'] = image.getId()
-        f['Well'] = well.getId()
-        f['Cell_Count'] = len(f.index)
-        files.append(f)
+        files.append(path)
+    print("analysis done")
     return files
 
 
-def calculate_stats(files):
-    Nuclei = pandas.DataFrame()
-    Nuclei = pandas.concat(files, ignore_index=True)
-    Nuclei.describe()
-    matplotlib.rcParams['figure.figsize'] = (32.0, 30.0)
-    df = Nuclei.drop(['Image', 'ImageNumber', 'Well', 'ObjectNumber',
-                      'Number_Object_Number', 'Classify_PH3Neg',
-                      'Classify_PH3Pos'], axis=1)
-    df.hist()
+# Save-results
+def save_results(conn, files, plate):
+    # Upload the CSV files
+    print("saving results...")
+    namespace = "cellprofiler.demo.namespace"
+    for f in files:
+        ann = conn.createFileAnnfromLocalFile(f, mimetype="text/csv",
+                                              ns=namespace, desc=None)
+        plate.linkAnnotation(ann)
 
 
-def save_results(conn, summary, plate):
-    cols = []
-    for col in summary.columns:
-        if col == 'Image':
-            cols.append(ImageColumn(col, '', summary[col]))
-        elif col == 'Well':
-            cols.append(WellColumn(col, '', summary[col]))
-        elif summary[col].dtype == 'int64':
-            cols.append(LongColumn(col, '', summary[col]))
-        elif summary[col].dtype == 'float64':
-            cols.append(DoubleColumn(col, '', summary[col]))
-
-    resources = conn.c.sf.sharedResources()
-    repository_id = resources.repositories().descriptions[0].getId().getValue()
-    table_name = "idr0002_cellprofiler"
-    table = resources.newTable(repository_id, table_name)
-    table.initialize(cols)
-    table.addData(cols)
-    # Link the table to the plate
-    orig_file = table.getOriginalFile()
-    file_ann = FileAnnotationWrapper(conn)
-    file_ann.setNs(NSBULKANNOTATIONS)
-    file_ann._obj.file = OriginalFileI(orig_file.id.val, False)
-    file_ann.save()
-    plate.linkAnnotation(file_ann)
-    table.close()
+# Disconnect
+def disconnect(conn):
+    conn.close()
 
 
+# main
 def main():
     # Collect user credentials
     username = raw_input("Username: ")
@@ -161,14 +140,12 @@ def main():
 
     # Load the plate
     plate = conn.getObject("Plate", plate_id)
+
     files = analyze(plate, pipeline)
 
-    # Calculate stats
-    Nuclei = calculate_stats(files)
-
-    # Save the result back to OMERO
-    summary = Nuclei.groupby('Image').mean()
-    save_results(conn, summary, plate)
+    save_results(conn, files, plate)
+    disconnect(conn)
+    print("done")
 
 
 if __name__ == "__main__":
