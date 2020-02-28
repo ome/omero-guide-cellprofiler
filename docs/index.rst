@@ -13,6 +13,7 @@ Follow the instructions in the
 
 .. toctree::
    setup
+   gettingstarted
    cellprofiler
    :maxdepth: 1
 
