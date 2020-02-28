@@ -42,6 +42,13 @@ We recommend to use a Conda environment to install CellProfiler and the OMERO Py
 In this section, we go over the various steps required to analyse the data.
 The script used in this document is :download:`idr0002_save.py <../scripts/idr0002_save.py>`.
 
+When running CellProfiler **headless**, it is important to set the following:
+
+.. literalinclude:: ../scripts/idr0002_save.py
+    :start-after: # run headless
+    :end-before: # end headless
+
+
 Connect to the server:
 
 .. literalinclude:: ../scripts/idr0002_save.py
