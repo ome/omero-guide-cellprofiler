@@ -88,9 +88,7 @@ When done, close the session:
 **Exercises**
 -------------
 
-#. Modify the script above to analyze a collection of images and not a plate.
-
-#. Modify the script to analyze all the planes in an image.
+#. Modify the script above to analyze images in a dataset.
 
 #. Modify the script to link the generated results to the corresponding image.
 
