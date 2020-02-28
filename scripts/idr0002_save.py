@@ -48,6 +48,7 @@ def connect(hostname, username, password):
     conn.connect()
     return conn
 
+
 # Load-plate
 def load_plate(conn, plate_id):
     return conn.getObject("Plate", plate_id)
@@ -127,10 +128,10 @@ def disconnect(conn):
 # main
 def main():
     # Collect user credentials
-    username = raw_input("Username: ")
-    password = getpass("OMERO Password: ")
-    plate_id = raw_input("Plate ID: ")
-    host = 'wss://workshop.openmicroscopy.org/omero-ws'
+    host = raw_input("Host [wss://workshop.openmicroscopy.org/omero-ws]: ") or 'wss://workshop.openmicroscopy.org/omero-ws'
+    username = raw_input("Username [trainer-1]: ") or 'trainer-1'
+    password = getpass("Password: ")
+    plate_id = raw_input("Plate ID [102]: ") or '102'
     # Connect to the server
     conn = connect(host, username, password)
 
@@ -139,7 +140,7 @@ def main():
     pipeline = load_pipeline(pipeline_path)
 
     # Load the plate
-    plate = conn.getObject("Plate", plate_id)
+    plate = load_plate(conn, plate_id)
 
     files = analyze(plate, pipeline)
 
