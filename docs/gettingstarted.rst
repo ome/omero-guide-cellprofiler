@@ -88,10 +88,10 @@ When done, close the session:
 **Exercises**
 -------------
 
-#. Modify the script above to analyze images in a dataset.
+#. Modify the script above to analyze images in a dataset (:download:`Solution <../scripts/idr0002_save_solution1.py>`).
 
-#. Modify the script to link the generated results to the corresponding image.
+#. Modify the script to link the generated results to the corresponding image (:download:`Solution <../scripts/idr0002_save_solution2.py>`).
 
-#. Modify the script to aggregate the result and linked the output to the plate.
+#. Modify the script to aggregate the result in an OMERO.table and linked the output to the plate (:download:`Solution <../scripts/idr0002_save_solution3.py>`).
 
 
