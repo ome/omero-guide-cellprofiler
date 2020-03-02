@@ -9,13 +9,13 @@ using the CellProfiler API.
 
 We will show:
 
--  How to connect to server
+- How to connect to server
 
--  How load images from a Plate using the OMERO API.
+- How load images from a Plate using the OMERO API.
 
--  How to run CellProfiler using its Python API.
+- How to run CellProfiler using its Python API.
 
--  How to save the generated results and linked them to the Plate.
+- How to save the generated results and linked them to the Plate.
 
 **Resources**
 -------------
@@ -23,9 +23,9 @@ We will show:
 We will use a CellProfiler example pipeline to analyse RNAi screening
 data from the Image Data Resource (IDR).
 
--  PercentPositive Pipeline \ https://cellprofiler.org/examples/
+- PercentPositive Pipeline \ https://cellprofiler.org/examples/
 
--  IDR data \ https://idr.openmicroscopy.org/webclient/?show=screen-102
+- IDR data \ https://idr.openmicroscopy.org/webclient/?show=screen-102
 
 For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
@@ -100,5 +100,3 @@ When done, close the session:
 #. Modify the script to link the generated results to the corresponding image (:download:`Solution <../scripts/idr0002_save_solution2.py>`).
 
 #. Modify the script to aggregate the result in an OMERO.table and linked the output to the plate (:download:`Solution <../scripts/idr0002_save_solution3.py>`).
-
-
