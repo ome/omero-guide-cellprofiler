@@ -13,6 +13,11 @@ CellProfiler currently runs on Python 2.7. It does not yet support Python 3.
 We recommend to install the dependencies using Conda.
 Conda manages programming environments in a manner similar to 
 `virtualenv <https://virtualenv.pypa.io/en/stable/>`_.
+You can install the various dependencies following the steps below (Option 1) or build locally a Docker Image
+using ``repo2docker`` (Option 2). When the installation is done, you should be ready to use the CellProfiler API and OMERO, see :doc:`gettingstarted`.
+
+*Option 1*
+~~~~~~~~~~
 
 - Install `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ if necessary.
 
@@ -35,6 +40,9 @@ Conda manages programming environments in a manner similar to
 - Activate the environment::
 
     $ conda activate cellprofiler
+
+*Option 2*
+~~~~~~~~~~
 
 Alternatively you can create a local Docker Image using ``repo2docker``, see :download:`README.md <https://github.com/ome/omero-guide-cellprofiler/blob/master/README.md>`::
 
