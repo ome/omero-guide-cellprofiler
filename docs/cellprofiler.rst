@@ -1,11 +1,11 @@
-Analyze OMERO data
-==================
+Analyze OMERO data using a Jupyter Notebook
+===========================================
 
 
 **Description**
 ---------------
 
-In this document, we will demonstrate how to integrate CellProfiler and
+We will demonstrate how to integrate CellProfiler and
 OMERO using the CellProfiler Python API and the OMERO Python API. We
 will use a Jupyter notebook to demonstrate the integration.
 
