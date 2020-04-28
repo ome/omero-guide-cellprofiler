@@ -37,4 +37,5 @@ dependencies:
   - pip:
     - omero-py
     - cellh5
+    - centrosome==1.1.6
     - git+https://github.com/CellProfiler/CellProfiler.git@v3.1.9
