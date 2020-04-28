@@ -34,6 +34,9 @@ dependencies:
   - tornado=4.5.3 # bug with version 5.0. This implies that the kernel cannot start
   - mysql-connector-python
   - pytest<3
+  - zarr  # for scripts reading from S3
+  - s3fs  # for scripts reading from S3
+  - dask  # for scripts reading from S3
   - pip:
     - omero-py
     - cellh5
