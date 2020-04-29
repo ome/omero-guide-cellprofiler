@@ -91,7 +91,7 @@ def analyze(plate, pipeline):
         # Load a single Image per Well
         image = well.getImage(0)
         print(image.getName())
-        data = load_from_s3(plate_id, well.row*well.column)
+        data = load_from_s3(plate_id, well.row*well.column-1)
         size_c = image.getSizeC()
         # For each Image in OMERO, we copy pipeline and inject image modules
         pipeline_copy = pipeline.copy()
