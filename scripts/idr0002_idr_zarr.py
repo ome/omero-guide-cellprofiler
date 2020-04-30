@@ -52,6 +52,7 @@ def connect():
                         host='ws://idr.openmicroscopy.org/omero-ws',
                         secure=True)
     conn.connect()
+    conn.c.enableKeepAlive(60)
     return conn
 
 
