@@ -7,14 +7,17 @@ We will use the CellProfiler API to analyze data stored in an OMERO server.
 CellProfiler currently runs on Python 2.7. It does not yet support Python 3.
 
 
-**Setup**
----------
+Setup
+-----
 
 We recommend to install the dependencies using Conda.
 Conda manages programming environments in a manner similar to 
 `virtualenv <https://virtualenv.pypa.io/en/stable/>`_.
 You can install the various dependencies following the steps below (Option 1) or build locally a Docker Image
 using ``repo2docker`` (Option 2). When the installation is done, you should be ready to use the CellProfiler API and OMERO, see :doc:`gettingstarted`.
+
+The installation below is needed to run the scripts and/or notebooks. If you wish to start your own environment without the scripts/notebooks, copy locally into an ``environment.yml`` file the content of 
+`binder/environment.yml <https://raw.githubusercontent.com/ome/omero-guide-cellprofiler/master/binder/environment.yml>`_, remove or add the dependencies you need and run the commands below to create a conda environment.
 
 *Option 1*
 ~~~~~~~~~~
