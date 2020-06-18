@@ -1,7 +1,7 @@
 # Guide on how to integrate CellProfiler and OMERO
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks/idr0002.ipynb)
 
-[![Documentation Status](https://readthedocs.org/projects/omero-guide-cellprofiler/badge/?version=latest)](https://omero-guides.readthedocs.io/en/latest/upload/docs/import.html)
+[![Documentation Status](https://readthedocs.org/projects/omero-guide-cellprofiler/badge/?version=latest)](https://omero-guides.readthedocs.io/en/latest/cellprofiler/docs/index.html)
 
 The documentation is deployed at [Using CellProfiler](https://omero-guides.readthedocs.io/en/latest/cellprofiler/docs/index.html)
 
