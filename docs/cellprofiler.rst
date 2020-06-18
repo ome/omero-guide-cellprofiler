@@ -2,8 +2,8 @@ Analyze OMERO data using a Jupyter Notebook
 ===========================================
 
 
-**Description**
----------------
+Description
+-----------
 
 We will demonstrate how to integrate CellProfiler and
 OMERO using the CellProfiler Python API and the OMERO Python API. We
@@ -11,40 +11,43 @@ will use a Jupyter notebook to demonstrate the integration.
 
 We will show:
 
--  How to adjust an existing CellProfiler pipeline so that it can be used with OMERO.
+- How to adjust an existing CellProfiler pipeline so that it can be used with OMERO.
 
--  How load images from a Plate using the OMERO API.
+- How load images from a Plate using the OMERO API.
 
--  How to run CellProfiler using its Python API.
+- How to run CellProfiler using its Python API.
 
--  How to plot the results.
+- How to plot the results.
 
--  How to save the generated results back to OMERO as OMERO.table so they can be used later on by OMERO.parade.
+- How to save the generated results back to OMERO as OMERO.table so they can be used later on by OMERO.parade.
 
-**Resources**
--------------
+Resources
+---------
 
 We will use a CellProfiler example pipeline to analyse RNAi screening
 data from the Image Data Resource (IDR).
 
--  PercentPositive Pipeline \ https://cellprofiler.org/examples/
+- Example pipeline `PercentPositive Pipeline <https://cellprofiler.org/examples/>`_.
 
--  IDR data \ https://idr.openmicroscopy.org/webclient/?show=screen-102
+- Images from IDR `idr0002 <https://idr.openmicroscopy.org/webclient/?show=screen-102>`_.
 
--  Notebook :download:`idr0002_save.ipynb <../notebooks/idr0002_save.ipynb>`
+- Notebook :download:`idr0002_save.ipynb <../notebooks/idr0002_save.ipynb>`
 
 For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
 which is a read-only OMERO.server.
 
-**Step-by-Step**
-----------------
+Step-by-Step
+------------
+
+The pipeline is run on all 2-Channel images from each Well in the 96-well plate (each Well contains one image), generating a CSV file containing rows for different objects identified in the
+image and columns for various parameters measured.
 
 #. First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
 
-#. Go to \ https://mybinder.org/
+#. Go to `mybinder.org <https://mybinder.org/>`_.
 
-#. Copy and paste the URL of this repository
+#. Copy and paste the URL of this repository.
 
 #. Click launch to start the instance.
 
@@ -62,20 +65,17 @@ which is a read-only OMERO.server.
 
 #. These modules are replaced by the InjectImage module, using numpy planes loaded from OMERO Images. This allows to pass data from OMERO to CellProfiler.
 
-#. The pipeline is run on all 2-Channel images from each Well in the 96-well plate (each Well contains one image), generating a CSV file containing rows for different objects identified in the
-image and columns for various parameters measured.
+#. Note that to save time, we run on a subset of all Wells in the plate. We run it on the first 5 wells
 
-#. Note that to save time during the workshop, we can run on a subset of all Wells in the plate. We run it on the first 5 wells:
-
-.. image:: images/cp2.png
+    .. image:: images/cp2.png
 
 #. The generated CSV file is read into a Dataframe for each image. We add the Image ID and Well ID, as well as the total number of Objects, Cell_Count, to each Dataframe.
 
 #. All the Dataframes are then concatenated into a single Dataframe.
 
-#. We can visualise the data as histograms for each column with df.hist()
+#. We visualise the data as histograms for each column with ``df.hist()``.
 
-.. image:: images/cp3.png
+    .. image:: images/cp3.png
 
 
 #. Finally, the Dataframe rows are grouped by Image to give an average value per Image of each parameter (column) in the table.
@@ -95,4 +95,3 @@ image and columns for various parameters measured.
 #. Now you can use theslider to filter Wells by Cell Count.
 
 .. image:: images/cp4.png
-
