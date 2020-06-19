@@ -73,7 +73,7 @@ image and columns for various parameters measured.
 
 #. All the Dataframes are then concatenated into a single Dataframe.
 
-#. We visualise the data as histograms for each column with ``df.hist()``.
+#. We visualize the data as histograms for each column with ``df.hist()``.
 
     .. image:: images/cp3.png
 
