@@ -92,7 +92,7 @@ When done, close the session:
     :end-before: # main
 
 
-In order the use the methods implemented above in a proper standalone script:
+In order to use the methods implemented above in a proper standalone script:
 **Wrap it all up** in an ``analyze`` method and call it from ``main``:
 
 .. literalinclude:: ../scripts/idr0002_save.py
