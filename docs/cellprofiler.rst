@@ -94,4 +94,4 @@ image and columns for various parameters measured.
 
 #. Now you can use theslider to filter Wells by Cell Count.
 
-.. image:: images/cp4.png
+    .. image:: images/cp4.png
