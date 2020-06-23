@@ -15,7 +15,7 @@ We will show:
 
 - How to run CellProfiler using its Python API.
 
-- How to save the generated results and linked them to the Plate.
+- How to save the generated results and link them to the Plate.
 
 Resources
 ---------
