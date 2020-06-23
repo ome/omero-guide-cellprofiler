@@ -78,7 +78,7 @@ We are now ready to analyze the plate:
     :end-before: # Save-results
 
 
-Let's now save the generated CSV files and linked them to the plate:
+Let's now save the generated CSV files and link them to the plate:
 
 .. literalinclude:: ../scripts/idr0002_save.py
     :start-after: # Save-results
@@ -105,4 +105,4 @@ In order to use the methods implemented above in a proper standalone script:
 
 #. Modify the script to link the generated results to the corresponding image (:download:`Solution <../scripts/idr0002_save_solution2.py>`).
 
-#. Modify the script to aggregate the result in an OMERO.table and linked the output to the plate (:download:`Solution <../scripts/idr0002_save_solution3.py>`).
+#. Modify the script to aggregate the result in an OMERO.table and link the output to the plate (:download:`Solution <../scripts/idr0002_save_solution3.py>`).
