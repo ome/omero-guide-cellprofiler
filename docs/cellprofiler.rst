@@ -92,6 +92,6 @@ image and columns for various parameters measured.
 
 #. Change the filter from ImageNumber to Cell_Count (at the bottom of the list).
 
-#. Now you can use theslider to filter Wells by Cell Count.
+#. Now you can use the slider to filter Wells by Cell Count.
 
     .. image:: images/cp4.png
