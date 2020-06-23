@@ -27,7 +27,7 @@ Resources
 We will use a CellProfiler example pipeline to analyse RNAi screening
 data from the Image Data Resource (IDR).
 
-- Example pipeline `PercentPositive Pipeline <https://cellprofiler.org/examples/>`_.
+- Example pipeline from the CellProfiler website: `Cell/particle counting and scoring the percentage of stained objects <http://cellprofiler-examples.s3.amazonaws.com/ExamplePercentPositive.zip>`_.
 
 - Images from IDR `idr0002 <https://idr.openmicroscopy.org/webclient/?show=screen-102>`_.
 
