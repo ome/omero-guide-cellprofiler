@@ -47,7 +47,7 @@ image and columns for various parameters measured.
 
 #. Go to `mybinder.org <https://mybinder.org/>`_.
 
-#. Copy and paste the URL of this repository.
+#. Copy and paste the URL of this `repository <https://github.com/ome/omero-guide-cellprofiler>`_.
 
 #. Click launch to start the instance.
 
