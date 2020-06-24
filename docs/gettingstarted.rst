@@ -1,43 +1,44 @@
 Getting started with CellProfiler and OMERO
 ===========================================
 
-**Description**
----------------
+Description
+-----------
 
 We will use a Python script showing how to analyze data stored in an OMERO server
 using the CellProfiler API.
 
 We will show:
 
-- How to connect to server
+- How to connect to server.
 
 - How load images from a Plate using the OMERO API.
 
 - How to run CellProfiler using its Python API.
 
-- How to save the generated results and linked them to the Plate.
+- How to save the generated results and link them to the Plate.
 
-**Resources**
--------------
+Resources
+---------
 
 We will use a CellProfiler example pipeline to analyse RNAi screening
 data from the Image Data Resource (IDR).
 
-- PercentPositive Pipeline \ https://cellprofiler.org/examples/
+- Example pipeline from the CellProfiler website: `Cell/particle counting and scoring the percentage of stained objects <http://cellprofiler-examples.s3.amazonaws.com/ExamplePercentPositive.zip>`_.
 
-- IDR data \ https://idr.openmicroscopy.org/webclient/?show=screen-102
+
+- Images from IDR `idr0002 <https://idr.openmicroscopy.org/webclient/?show=screen-102>`_.
 
 For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
 which is a read-only OMERO.server.
 
-**Setup**
----------
+Setup
+-----
 
 We recommend to use a Conda environment to install CellProfiler and the OMERO Python bindings. Please read first :doc:`setup`.
 
-**Step-by-Step**
-----------------
+Step-by-Step
+------------
 
 In this section, we go over the various steps required to analyse the data.
 The script used in this document is :download:`idr0002_save.py <../scripts/idr0002_save.py>`.
@@ -78,7 +79,7 @@ We are now ready to analyze the plate:
     :end-before: # Save-results
 
 
-Let's now save the generated CSV files and linked them to the plate:
+Let's now save the generated CSV files and link them to the plate:
 
 .. literalinclude:: ../scripts/idr0002_save.py
     :start-after: # Save-results
@@ -92,6 +93,12 @@ When done, close the session:
     :end-before: # main
 
 
+In order to use the methods implemented above in a proper standalone script:
+**Wrap it all up** in an ``analyze`` method and call it from ``main``:
+
+.. literalinclude:: ../scripts/idr0002_save.py
+    :start-after: # main
+
 **Exercises**
 -------------
 
@@ -99,4 +106,4 @@ When done, close the session:
 
 #. Modify the script to link the generated results to the corresponding image (:download:`Solution <../scripts/idr0002_save_solution2.py>`).
 
-#. Modify the script to aggregate the result in an OMERO.table and linked the output to the plate (:download:`Solution <../scripts/idr0002_save_solution3.py>`).
+#. Modify the script to aggregate the result in an OMERO.table and link the output to the plate (:download:`Solution <../scripts/idr0002_save_solution3.py>`).
