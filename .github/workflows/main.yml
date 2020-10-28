@@ -13,9 +13,9 @@ jobs:
         run: pip install --upgrade jupyter-repo2docker
       - name: sphinx install
         run: pip install --upgrade sphinx
-      - name: Build container
-        run: repo2docker --no-run .
       - name: Build docs
         run: |
            cd docs
            make clean html linkcheck
+      - name: Build container
+        run: repo2docker --no-run .
