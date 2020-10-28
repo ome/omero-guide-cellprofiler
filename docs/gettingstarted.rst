@@ -26,7 +26,7 @@ data from the Image Data Resource (IDR).
 - Example pipeline from the CellProfiler website: `Cell/particle counting and scoring the percentage of stained objects <http://cellprofiler-examples.s3.amazonaws.com/ExamplePercentPositive.zip>`_.
 
 
-- Images from IDR `idr0002 <https://idr.openmicroscopy.org/webclient/?show=screen-102>`_.
+- Images from IDR `idr0002 <https://idr.openmicroscopy.org/search/?query=Name:idr0002>`_.
 
 For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
