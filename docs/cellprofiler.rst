@@ -45,7 +45,7 @@ image and columns for various parameters measured.
 
 #. First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
 
-#. Launch the `idr0002_save.ipynb notebook <https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks/idr0002_save.ipynb)>`_ in `mybinder.org <https://mybinder.org/>`_.
+#. Launch the `idr0002_save.ipynb notebook <https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks/idr0002_save.ipynb>`_ in `mybinder.org <https://mybinder.org/>`_.
 
 #. Select the first Step and click on the Run button to execute each step in turn.
 
