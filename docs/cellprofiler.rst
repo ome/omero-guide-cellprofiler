@@ -31,7 +31,7 @@ data from the Image Data Resource (IDR).
 
 - Images from IDR `idr0002 <https://idr.openmicroscopy.org/search/?query=Name:idr0002>`_.
 
-- Notebook :download:`idr0002_save.ipynb <../notebooks/idr0002_save.ipynb>`
+- Notebook :download:`idr0002_save.ipynb <../notebooks/idr0002_save.ipynb>`. 
 
 For convenience, the IDR data have been imported into the training
 OMERO.server. This is only because we cannot save results back to IDR
@@ -45,15 +45,7 @@ image and columns for various parameters measured.
 
 #. First, open the webclient and find the Plate belonging to trainer-1 named plate1_1_013.
 
-#. Go to `mybinder.org <https://mybinder.org/>`_.
-
-#. Copy and paste the URL of this `repository <https://github.com/ome/omero-guide-cellprofiler>`_.
-
-#. Click launch to start the instance.
-
-#. Look under *Notebooks* for idr0002_save.ipynb.
-
-    .. image:: images/cp1.png
+#. Launch the `idr0002_save.ipynb notebook <https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks/idr0002_save.ipynb>`_ in `mybinder.org <https://mybinder.org/>`_.
 
 #. Select the first Step and click on the Run button to execute each step in turn.
 
