@@ -1,7 +1,13 @@
----
-name: Build and check link
+# Builds the repository using repo2docker
 
-on: [push, pull_request]
+---
+name: repo2docker
+
+on: 
+  push:
+  pull_request:
+  schedule:
+      - cron: '0 0 * * 0'
 
 jobs:
   build:
@@ -11,11 +17,5 @@ jobs:
       - uses: actions/setup-python@v2
       - name: repo2docker install
         run: pip install --upgrade jupyter-repo2docker
-      - name: sphinx install
-        run: pip install --upgrade sphinx
-      - name: Build docs
-        run: |
-           cd docs
-           make clean html linkcheck
       - name: Build container
         run: repo2docker --no-run .
