@@ -8,6 +8,9 @@ For more details, visit the `CellProfiler website <https://cellprofiler.org/>`_.
 Follow the instructions in the
 :download:`README.md <https://github.com/ome/omero-guide-cellprofiler/blob/master/README.md>` file to run the notebooks either locally or on `mybinder.org <https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks>`_.
 
+.. image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks
+ 
 Contents
 --------
 
