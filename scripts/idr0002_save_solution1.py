@@ -31,14 +31,14 @@ from getpass import getpass
 from omero.gateway import BlitzGateway
 
 # Import Cell Profiler Dependencies
-import cellprofiler.preferences as cpprefs
-import cellprofiler.pipeline as cpp
+import cellprofiler_core.preferences as cpprefs
+import cellprofiler_core.pipeline as cpp
 
 # Important to set when running headless
 cpprefs.set_headless()  # noqa
 
 # module used to inject OMERO image planes into Cell Profiler Pipeline
-from cellprofiler.modules.injectimage import InjectImage
+from cellprofiler_core.modules.injectimage import InjectImage
 
 
 # Connect to the server
