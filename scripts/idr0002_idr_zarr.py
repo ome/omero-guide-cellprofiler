@@ -147,7 +147,7 @@ def disconnect(conn):
 def main():
     # Collect user credentials
     try:
-        plate_id = raw_input("Plate ID [422]: ") or '422'
+        plate_id = input("Plate ID [422]: ") or '422'
         # Connect to the server
         conn = connect()
 

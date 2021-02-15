@@ -125,10 +125,10 @@ def disconnect(conn):
 # main
 def main():
     # Collect user credentials
-    host = raw_input("Host [wss://workshop.openmicroscopy.org/omero-ws]: ") or 'wss://workshop.openmicroscopy.org/omero-ws'
-    username = raw_input("Username [trainer-1]: ") or 'trainer-1'
+    host = input("Host [wss://workshop.openmicroscopy.org/omero-ws]: ") or 'wss://workshop.openmicroscopy.org/omero-ws'
+    username = input("Username [trainer-1]: ") or 'trainer-1'
     password = getpass("Password: ")
-    plate_id = raw_input("Plate ID [102]: ") or '102'
+    plate_id = input("Plate ID [102]: ") or '102'
     # Connect to the server
     conn = connect(host, username, password)
 
