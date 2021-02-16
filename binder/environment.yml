@@ -23,4 +23,4 @@ dependencies:
   - pip:
     - ome-zarr
     - numpy
-    - git+https://github.com/CellProfiler/CellProfiler.git@v4.0.7
+    - git+https://github.com/CellProfiler/CellProfiler.git@v4.1.3
