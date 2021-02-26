@@ -11,7 +11,7 @@ dependencies:
   - python==3.8.*
   - omero-py
   - openjdk
-  - conda-forge::wxpython
+  - conda-forge::wxpython==4.1.0
   - imageio
   - inflect
   - Jinja2
