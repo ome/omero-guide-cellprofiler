@@ -1,44 +1,26 @@
 channels:
   - defaults
   - anaconda
-  - goodman
   - bioconda
   - conda-forge
 dependencies:
-  - pandas=0.24
-  - python=2.7
-  - appdirs=1.4.*
-  - cython=0.28.*
-  - h5py=2.7.*
-  - libtiff=4.0.*
-  - libxml2=2.9.*
-  - libxslt=1.1.*
-  - lxml=4.2.*
-  - packaging=17.*
-  - pillow=5.*
-  - pip=10.*
-  - pyzmq=17.*
-  - mahotas=1.4.*
-  - matplotlib=2.2.*
-  - mysql-python=1.*
-  - numpy=1.14.*
-  - openjdk=8.0.*
-  - raven=6.*
-  - requests=2.*
-  - scikit-image=0.14.*
-  - scikit-learn=0.19.*
-  - scipy=1.1.*
-  - sphinx=1.7.*
-  - tifffile=0.15.*
-  - wxpython=4.0.*
-  - tornado=4.5.3 # bug with version 5.0. This implies that the kernel cannot start
-  - mysql-connector-python
-  - pytest<3
-  - zarr=2.3.2  # for scripts reading from S3
-  - s3fs  # for scripts reading from S3
-  - dask  # for scripts reading from S3
+  - h5py
+  - matplotlib
+  - pandas
+  - pip
+  - python==3.8.*
+  - omero-py
+  - openjdk
+  - conda-forge::wxpython==4.1.0
+  - imageio
+  - inflect
+  - Jinja2
+  - mahotas
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - six
   - pip:
-    - omero-py
-    - cellh5
-    - centrosome==1.1.6
-    - git+https://github.com/CellProfiler/CellProfiler.git@v3.1.9
+    - ome-zarr
+    - numpy
+    - git+https://github.com/CellProfiler/CellProfiler.git@v4.1.3

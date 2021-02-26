@@ -31,14 +31,14 @@ from getpass import getpass
 from omero.gateway import BlitzGateway
 
 # Import Cell Profiler Dependencies
-import cellprofiler.preferences as cpprefs
-import cellprofiler.pipeline as cpp
+import cellprofiler_core.preferences as cpprefs
+import cellprofiler_core.pipeline as cpp
 
 # Important to set when running headless
 cpprefs.set_headless()  # noqa
 
 # module used to inject OMERO image planes into Cell Profiler Pipeline
-from cellprofiler.modules.injectimage import InjectImage
+from cellprofiler_core.modules.injectimage import InjectImage
 
 
 # Connect to the server
@@ -125,10 +125,10 @@ def disconnect(conn):
 # main
 def main():
     # Collect user credentials
-    host = raw_input("Host [wss://workshop.openmicroscopy.org/omero-ws]: ") or 'wss://workshop.openmicroscopy.org/omero-ws'
-    username = raw_input("Username [trainer-1]: ") or 'trainer-1'
+    host = input("Host [wss://workshop.openmicroscopy.org/omero-ws]: ") or 'wss://workshop.openmicroscopy.org/omero-ws'
+    username = input("Username [trainer-1]: ") or 'trainer-1'
     password = getpass("Password: ")
-    plate_id = raw_input("Plate ID [102]: ") or '102'
+    plate_id = input("Plate ID [102]: ") or '102'
     # Connect to the server
     conn = connect(host, username, password)
 
