@@ -7,7 +7,6 @@ channels:
 dependencies:
   - zeroc-ice36-python
   - h5py==3.7.0
-  - matplotlib==3.7.1
   - pandas==1.5.3
   - pip
   - python==3.8.*
@@ -24,4 +23,3 @@ dependencies:
   - pip:
     - ome-zarr
     - cellprofiler==4.2.4
-    #- git+https://github.com/CellProfiler/CellProfiler.git@v4.2.4
