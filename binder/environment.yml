@@ -22,4 +22,4 @@ dependencies:
   - mysqlclient==1.4.6
   - pip:
     - ome-zarr
-    - cellprofiler==4.2.4
+    - git+https://github.com/CellProfiler/CellProfiler.git@v4.2.4
