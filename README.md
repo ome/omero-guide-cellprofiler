@@ -11,23 +11,56 @@ This guide demonstrates how to use the CellProfiler Python API to analyze data s
 
 This repository contains documentation and notebooks.
 
-To run the notebooks, you can either [run on mybinder.org](https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks) or build locally with [repo2docker](https://repo2docker.readthedocs.io/).
+## Run the notebooks
+
+### Running on cloud resources
+
+[![Binder](https://mybinder.org/v2/gh/ome/omero-guide-cellprofiler/master?filepath=notebooks)
+
+The OMERO server used will need to have [websockets support](https://docs.openmicroscopy.org/omero/latest/sysadmins/websockets.html) enabled.
+
+### Running in Docker
+
+Alternatively, if you have Docker installed, you can use the [repo2docker](https://repo2docker.readthedocs.io/en/latest/)
+tool to run this repository as a local Docker instance:
 
 
-To build locally:
+    $ git clone https://github.com/ome/omero-guide-cellprofiler
+    $ cd omero-guide-cellprofiler
+    $ repo2docker .
 
- * Install [Docker](https://www.docker.com/) if required
- * Create a virtual environment and install repo2docker from PyPI.
- * Clone this repository
- * Run  ``repo2docker``. 
- * Depending on the permissions, you might have to run the command as an admin
+### Running locally
 
-```
-pip install jupyter-repo2docker
-git clone https://github.com/ome/omero-guide-cellprofiler.git
-cd omero-guide-cellprofiler
-repo2docker .
-```
+Finally, if you would like to install the necessary requirements locally,
+we suggest using conda.
+
+Then, create the environment:
+
+    $ git clone https://github.com/ome/omero-guide-cellprofiler
+    $ cd omero-guide-cellprofiler
+    $ conda env create -n omero-guide-cellprofiler -f binder/environment.yml
+
+and activate the newly created environment:
+
+    $ conda activate omero-guide-cellprofiler
+
+The following steps are only required if you want to run the notebooks
+
+* If you have Anaconda installed:
+  * Start Jupyter from the Anaconda-navigator
+  * In the conda environment, run ``conda install ipykernel``
+  * To register the environment, run ``python -m ipykernel install --user --name omero-guide-cellprofiler``
+  * Select the notebook you wish to run and select the ``Kernel>Change kernel>Python [conda env:omero-guide-cellprofiler]``
+* If Anaconda is not installed:
+  * In the environment, install ``jupyter`` e.g. ``pip install jupyter``
+  * Add the virtualenv as a jupyter kernel i.e. ``ipython kernel install --name "omero-guide-cellprofiler" --user``
+  * Open jupyter notebook i.e. ``jupyter notebook`` and select the ``omero-guide-cellprofiler`` kernel or ``[conda env:omero-guide-cellprofiler]`` according to what is available
+
+
+An additional benefit of installing the requirements locally is that you
+can then use the tools without needing to launch Jupyter itself.
+
+See also [setup.rst](https://github.com/ome/omero-guide-cellprofiler/blob/master/docs/setup.rst)
 
 
 This is a Sphinx based documentation. 
