@@ -50,7 +50,7 @@ The following steps are only required if you want to run the notebooks
   * Start Jupyter from the Anaconda-navigator
   * In the conda environment, run ``conda install ipykernel``
   * To register the environment, run ``python -m ipykernel install --user --name omero-guide-cellprofiler``
-  * Select the notebook you wish to run and select the ``Kernel>Change kernel>Python [conda env:omero-guide-cellprofiler]``
+  * Select the notebook you wish to run and select the ``Kernel>Change kernel>Python [conda env:omero-guide-cellprofiler]`` or ``Kernel>Change kernel>omero-guide-cellprofiler``
 * If Anaconda is not installed:
   * In the environment, install ``jupyter`` e.g. ``pip install jupyter``
   * Add the virtualenv as a jupyter kernel i.e. ``ipython kernel install --name "omero-guide-cellprofiler" --user``
