@@ -3,24 +3,23 @@ channels:
   - anaconda
   - bioconda
   - conda-forge
+  - ome
 dependencies:
-  - h5py
-  - matplotlib
-  - pandas
+  - zeroc-ice36-python
+  - h5py==3.7.0
+  - pandas==1.5.3
   - pip
   - python==3.8.*
-  - omero-py
-  - openjdk
+  - conda-forge::omero-py
+  - openjdk==11.0.13
   - conda-forge::wxpython==4.1.0
-  - imageio
-  - inflect
-  - Jinja2
-  - mahotas
-  - scikit-image
-  - scikit-learn
-  - scipy
-  - six
+  - imageio==2.26.0
+  - inflect==5.3.0
+  - Jinja2==3.1.2
+  - mahotas==1.4.13
+  - scikit-image==0.20.0
+  - scikit-learn==1.2.2
+  - mysqlclient==1.4.6
   - pip:
     - ome-zarr
-    - numpy
-    - git+https://github.com/CellProfiler/CellProfiler.git@v4.1.3
+    - git+https://github.com/CellProfiler/CellProfiler.git@v4.2.4
